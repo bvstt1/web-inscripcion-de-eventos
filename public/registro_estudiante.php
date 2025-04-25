@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro</title>
+</head>
+<body>
+    <div>
+        <form action="../php/registrar_estudiante.php" method="POST" onsubmit="return validarFormulario()">
+            <label>RUT</label>
+            <input type="text" id="rut" name="rut" maxlength="9" oninput="soloNumeros(this)"
+                onblur="validarRut(this)" required>
+            <span id="error-rut" style="color: red;"></span>
+
+            <label>Correo Institucional</label>
+            <input type="email" name="correo" required>
+
+            <label>Selecciona tu carrera</label>
+            <select name="carrera" required>
+                <option value="">---Selecciona una carrera---</option>
+
+                <optgroup label="Facultad de Ingeniería">
+                    <option value="Ingeniería Civil en Minas">Ingeniería Civil en Minas</option>
+                    <option value="Ingeniería Civil en Metalurgia">Ingeniería Civil en Metalurgia</option>
+                    <option value="Ingeniería en Computación e Informatica">Ingeniería Civil en Computación e Informatica</option>
+                    <option value="Ingeniería Comercial">Ingeniería Comercial</option>
+                    <option value="Geoloía">Geología</option>
+                    <option value="Ingeniería Civil Industrial">Ingeniería Civil Industrial</option>
+                </optgroup>
+
+                <optgroup label="Facultad de Humanidades y Educación">
+                    <option value="Licenciatura en Educación y Pedagogía en Educación General Básica">Licenciatura en Educación y Pedagogía en Educación General Básica</option>
+                    <option value="Licenciatura en Educación y Pedagogía en Educación Física">Licenciatura en Educación y Pedagogía en Educación Física</option>
+                    <option value="Licenciatura en Educación y Pedagogía en Educación Parvularia">Licenciatura en Educación y Pedagogía en Educación Parvularia</option>
+                    <option value="Licenciatura en Educación y Pedagogía en Inglés">Licenciatura en Educación y Pedagogía en Inglés</option>
+                    <option value="Traductología y Traductor e Interprete Inglés-Español">Traductología y Traductor e Interprete Inglés-Español</option>
+                    <option value="Psicología">Psicología</option>
+                </optgroup>
+
+                <optgroup label="Facultad de Ciencias Jurídicas y Sociales">
+                    <option value="Psicología">Derecho</option>
+                    <option value="Trabajo Social">Trabajo Social</option>
+                </optgroup>
+
+                <optgroup label="Fac. de Ciencias de la Salud">
+                    <option value="Enfermería">Enfermería</option>
+                    <option value="Kinesiología">Kinesiología</option>
+                    <option value="Obstetricia y Puericultura">Obstetricia y Puericultura</option>
+                    <option value="Nutrición y Dietética">Nutrición y Dietética</option>
+                </optgroup>
+
+                <optgroup label="Facultad de Medicina">
+                    <option value="Medicina">Medicina</option>
+                </optgroup>
+
+                <optgroup label="Facultad Tecnológica">
+                    <option value="Construcción Civil">Construcción Civil</option>
+                </optgroup>
+            </select>
+
+            <label>Contraseña</label>
+            <input type="password" name="contrasena" required>
+
+            <input type="submit" value="Registrar" name="registro-est">
+        </form>
+    </div>
+    <script src="../js/rutValidacion.js"></script>
+</body>
+</html>

@@ -1,7 +1,12 @@
 <?php
-$conexion = new mysqli("localhost", "root", "", "app-uda-inscripcion");
+    $servidor = "localhost";
+    $usuario = "root";
+    $clave = "";
+    $baseDeDatos = "app-uda-inscripcion";
 
-if ($conexion->connect_error) {
-    die("Conexión fallida: " . $conexion->connect_error);
-}
+    $enlace = mysqli_connect($servidor, $usuario, $clave, $baseDeDatos);
+
+    if (!$enlace) {
+        die("Conexión fallida: " . mysqli_connect_error());
+    }
 ?>
