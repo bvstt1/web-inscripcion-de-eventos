@@ -3,13 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Registro</title>
+
+    <style>
+        #error-rut {
+            color: red;
+            font-size: 0.9em;
+        }
+    </style>
+
 </head>
 <body>
     <div>
         <form action="../php/registrar_estudiante.php" method="POST" onsubmit="return validarFormulario()">
             <label>RUT</label>
-            <input type="text" id="rut" name="rut" maxlength="9" oninput="soloNumeros(this)"
-                onblur="validarRut(this)" required>
+            <input type="text" id="rut" name="rut" maxlength="10" oninput="soloNumeros(this)" required>
             <span id="error-rut" style="color: red;"></span>
 
             <label>Correo Institucional</label>
@@ -64,6 +71,6 @@
             <input type="submit" value="Registrar" name="registro-est">
         </form>
     </div>
-    <script src="../js/rutValidacion.js"></script>
+    <script src="../js/rut_validación.js"></script>
 </body>
 </html>
