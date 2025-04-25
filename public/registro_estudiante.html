@@ -3,16 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Registro</title>
-
-    <style>
-        #error-rut {
-            color: red;
-            font-size: 0.9em;
-        }
-    </style>
-
 </head>
 <body>
+
+    <!-- Mensaje de alerta -->
+    <div id="mensaje-error" style="color: red;"></div>
+
+    <h2>Crear cuenta</h2>
+    <p>Estudiante UDA</p>
     <div>
         <form action="../php/registrar_estudiante.php" method="POST" onsubmit="return validarFormulario()">
             <label>RUT</label>
@@ -70,7 +68,12 @@
 
             <input type="submit" value="Registrar" name="registro-est">
         </form>
+        <div>
+            <p>¿Ya tienes una cuenta? Preciona <a href="../public/login.html">aquí</a> para loguearte</p>
+        </div>
     </div>
-    <script src="../js/rut_validación.js"></script>
+
+    <script src="../js/mensaje_registro.js"></script>
+    <script src="../js/rut_validacion.js"></script>
 </body>
 </html>

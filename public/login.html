@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Login de Usuarios</title>
+</head>
+<body>
+  <h2>Iniciar Sesión</h2>
+  <form action="../php/login.php" method="POST" onsubmit="return validarFormulario();">
+    <label for="rut">RUT:</label>
+    <input type="text" id="rut" name="rut" required>
+
+    <label for="contrasena">Contraseña:</label>
+    <input type="password" id="contrasena" name="contrasena" required>
+
+    <p>¿Has olvidado tu cotrseña?</p>
+
+    <button type="submit" name="login">Iniciar Sesión</button>
+  </form>
+  <p>Crear una nueva cuenta</p>
+
+
+  <script src="rut_validacion.js"></script>
+</body>
+</html>

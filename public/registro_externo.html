@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro Externo</title>
+</head>
+<body>
+
+    <!-- Mensaje de alerta -->
+    <div id="mensaje-error" style="color: red;"></div>
+
+    <h2>Crear cuenta</h2>
+    <P>Usuario Externo</P>
+    <div>
+        <form action="../php/registrar_externo.php" method="POST" onsubmit="return validarFormulario()">
+            <label>RUT</label>
+            <input type="text" id="rut" name="rut" maxlength="10" oninput="soloNumeros(this)" required>
+            <span id="error-rut" style="color: red;"></span>
+
+            <label>Correo</label>
+            <input type="email" name="correo" required>
+
+            <label>Institucion</label>
+            <input type="text" name="institucion" required>
+            <label>Cargo</label>
+            <input type="text" name="cargo" required>
+
+            <label>Contraseña</label>
+            <input type="password" name="contrasena" required>
+
+            <input type="submit" value="Registrar" name="registro-ext">
+        </form>
+        <div>
+            <p>¿Ya tienes una cuenta? Preciona <a href="../public/login.html">aquí</a> para loguearte</p>
+        </div>
+    </div>
+
+    <script src="../js/mensaje_registro.js"></script>
+    <script src="../js/rut_validacion.js"></script>
+</body>
+</html>

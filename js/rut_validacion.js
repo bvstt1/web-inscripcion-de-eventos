@@ -14,7 +14,7 @@ function validarRut(rut) {
 
     // Detectar RUT de dígitos repetidos (ej: 11111111)
     if (/^(\d)\1+$/.test(rut.slice(0, -1))) {
-        mostrarError("❌ RUT inválido o repetido.");
+        mostrarError("❌ RUT inválido.");
         return false;
     }
 
@@ -71,7 +71,3 @@ function mostrarError(mensaje) {
         errorSpan.textContent = mensaje;
     }
 }
-
-// Hacemos accesibles las funciones desde el HTML
-window.soloNumeros = soloNumeros;
-window.validarFormulario = validarFormulario;
