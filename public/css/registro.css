@@ -1,0 +1,127 @@
+/* registro.css */
+body {
+    background: #e4e4e4;
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .registro-container {
+    background: #ffffff;
+    padding: 30px 25px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 360px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  h2 {
+    color: #2d7a6d;
+    font-size: 26px;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 20px;
+  }
+  
+  .opciones {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .opcion {
+    background: #f0f0f0;
+    border-radius: 12px;
+    padding: 10px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+    text-align: center;
+    height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .opcion:hover {
+    transform: scale(1.02);
+  }
+  
+  .imagen-placeholder {
+    background: #d9d9d9;
+    height: 200px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+  }
+  
+  .texto {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  form input, select {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    box-sizing: border-box;
+  }
+  
+  button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    background: #2d7a6d;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #256c61;
+  }
+  
+  a {
+    display: block;
+    margin-top: 15px;
+    font-size: 13px;
+    color: #555;
+    text-decoration: none;
+  }
+  
+  @media (max-width: 480px) {
+    .registro-container {
+      padding: 20px 15px;
+    }
+  
+    h2 {
+      font-size: 22px;
+    }
+  
+    p, a {
+      font-size: 12px;
+    }
+  
+    .opcion {
+      padding: 8px;
+    }
+  
+    button {
+      font-size: 14px;
+    }
+  }
+  

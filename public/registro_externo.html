@@ -1,41 +1,25 @@
-<!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Registro Externo</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro Externo</title>
+  <link rel="stylesheet" href="./css/registro.css">
 </head>
 <body>
-
-    <!-- Mensaje de alerta -->
-    <div id="mensaje-error" style="color: red;"></div>
-
+  <div class="registro-container">
     <h2>Crear cuenta</h2>
-    <P>Usuario Externo</P>
-    <div>
-        <form action="../php/registrar_externo.php" method="POST" onsubmit="return validarFormulario()">
-            <label>RUT</label>
-            <input type="text" id="rut" name="rut" maxlength="10" oninput="soloNumeros(this)" required>
-            <span id="error-rut" style="color: red;"></span>
-
-            <label>Correo</label>
-            <input type="email" name="correo" required>
-
-            <label>Institucion</label>
-            <input type="text" name="institucion" required>
-            <label>Cargo</label>
-            <input type="text" name="cargo" required>
-
-            <label>Contraseña</label>
-            <input type="password" name="contrasena" required>
-
-            <input type="submit" value="Registrar" name="registro-ext">
-        </form>
-        <div>
-            <p>¿Ya tienes una cuenta? Preciona <a href="../public/login.html">aquí</a> para loguearte</p>
-        </div>
-    </div>
-
-    <script src="../js/mensaje_registro.js"></script>
-    <script src="../js/rut_validacion.js"></script>
+    <p>Usuario Externo</p>
+    <form action="../php/registrar_externo.php" method="POST" onsubmit="return validarFormulario()">
+      <input type="text" id="rut" name="rut" maxlength="10" placeholder="RUT" oninput="soloNumeros(this)" required>
+      <input type="email" name="correo" placeholder="Correo" required>
+      <input type="text" name="institucion" placeholder="Institución" required>
+      <input type="text" name="cargo" placeholder="Cargo" required>
+      <input type="password" name="contrasena" placeholder="Contraseña" required>
+      <button type="submit" name="registro-ext">Registrar</button>
+    </form>
+    <a href="../public/login.html" class="crear-cuenta">Ya tienes una cuenta? Inicia sesión aquí</a>
+  </div>
+  <script src="../js/mensaje_registro.js"></script>
+  <script src="../js/rut_validacion.js"></script>
 </body>
 </html>

@@ -1,24 +1,17 @@
-<!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Registro</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro Estudiante</title>
+  <link rel="stylesheet" href="./css/registro.css">
 </head>
 <body>
-
-    <!-- Mensaje de alerta -->
-    <div id="mensaje-error" style="color: red;"></div>
-
+  <div class="registro-container">
     <h2>Crear cuenta</h2>
     <p>Estudiante UDA</p>
-    <div>
-        <form action="../php/registrar_estudiante.php" method="POST" onsubmit="return validarFormulario()">
-            <label>RUT</label>
-            <input type="text" id="rut" name="rut" maxlength="10" oninput="soloNumeros(this)" required>
-            <span id="error-rut" style="color: red;"></span>
-
-            <label>Correo Institucional</label>
-            <input type="email" name="correo" required>
+    <form action="../php/registrar_estudiante.php" method="POST" onsubmit="return validarFormulario()">
+      <input type="text" id="rut" name="rut" maxlength="10" placeholder="RUT" oninput="soloNumeros(this)" required>
+      <input type="email" name="correo" placeholder="Correo Institucional" required>
 
             <label>Selecciona tu carrera</label>
             <select name="carrera" required>
@@ -63,17 +56,12 @@
                 </optgroup>
             </select>
 
-            <label>Contraseña</label>
-            <input type="password" name="contrasena" required>
-
-            <input type="submit" value="Registrar" name="registro-est">
-        </form>
-        <div>
-            <p>¿Ya tienes una cuenta? Preciona <a href="../public/login.html">aquí</a> para loguearte</p>
+            <input type="password" name="contrasena" placeholder="Contraseña" required>
+            <button type="submit" name="registro-est">Registrar</button>
+          </form>
+          <a href="../public/login.html" class="crear-cuenta">Ya tienes una cuenta? Inicia sesión aquí</a>
         </div>
-    </div>
-
-    <script src="../js/mensaje_registro.js"></script>
-    <script src="../js/rut_validacion.js"></script>
-</body>
-</html>
+        <script src="../js/mensaje_registro.js"></script>
+        <script src="../js/rut_validacion.js"></script>
+      </body>
+      </html>
