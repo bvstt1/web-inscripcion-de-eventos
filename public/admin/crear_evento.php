@@ -13,9 +13,14 @@
 
   <h2 class="titulo-admin">Crear evento</h2>
 
-  <div class="tipo-evento">Tipo de evento</div>
-
-  <form action="../php/guardar_evento.php" method="POST" class="formulario-crear">
+  <form action="../../php/guardar_evento.php" method="POST" class="formulario-crear">
+    
+    <label for="tipo">Tipo de evento</label><br>
+    <select id="tipo" name="tipo" required>
+      <option value="semanal">Semanal</option>
+      <option value="diario">Diario</option>
+    </select>
+    
     <input type="text" name="titulo" placeholder="Título de evento" required>
     <input type="date" name="fecha" placeholder="Fecha del evento" required>
     <input type="text" name="lugar" placeholder="Lugar del evento" required>

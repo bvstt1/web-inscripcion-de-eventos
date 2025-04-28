@@ -2,10 +2,10 @@
 <?php
 session_start();
 
-/*if (!isset($_SESSION['tipo_usuario']) || $_SESSION['tipo_usuario'] !== 'admin') {
+if (!isset($_SESSION['tipo_usuario']) || $_SESSION['tipo_usuario'] !== 'admin') {
     header("Location: ../index.html");
     exit();
-}*/
+}
 ?>
 
 <!DOCTYPE html>
@@ -24,11 +24,12 @@ session_start();
   <h2 class="titulo-admin">Administrador</h2>
 
   <div class="admin-opciones">
-    <a href="crear_evento.php" class="admin-boton">Crear Evento</a>
-    <a href="ver_eventos.php" class="admin-boton">Ver / Editar / Eliminar Evento</a>
-    <a href="asistencia_eventos.php" class="admin-boton">Asistencia eventos</a>
+    <a href="./crear_evento.php" class="admin-boton">Crear Evento</a>
+    <a href="./vee_evento.php" class="admin-boton">Ver / Editar / Eliminar Evento</a>
+    <a href="./asistencia_eventos.php" class="admin-boton">Asistencia eventos</a>
   </div>
-
+  <a href="../../php/logout.php">Cerrar sesión</a>
+ 
 </div>
 
 </body>

@@ -31,7 +31,9 @@ if (isset($_POST['login'])) {
             $usuario = mysqli_fetch_assoc($resultadoEstudiantes);
 
             if (password_verify($contrasena, $usuario['contrasena'])) {
-                echo "✅ Hola alumno " . $usuario['rut'] . ", has ingresado correctamente.";
+                $_SESSION['rut'] = $usuario['rut'];
+                $_SESSION['tipo_usuario'] = 'estudiante';
+                header("Location: ../public/user/inscripcion_a_eventos.php");
             } else {
                 echo "❌ Contraseña incorrecta para estudiante.";
             }
@@ -44,9 +46,11 @@ if (isset($_POST['login'])) {
                 $usuario = mysqli_fetch_assoc($resultadoExternos);
 
                 if (password_verify($contrasena, $usuario['contrasena'])) {
-                    echo "✅ Hola externo " . $usuario['rut'] . ", has ingresado correctamente.";
+                    $_SESSION['rut'] = $usuario['rut'];
+                    $_SESSION['tipo_usuario'] = 'externo';
+                    header("Location: ../public/user/inscripcion_a_eventos.php");
                 } else {
-                    echo "❌ Contraseña incorrecta para externo.";
+                    echo "❌ Contraseña incorrecta para usuario externo.";
                 }
             } else {
                 echo "❌ RUT no registrado en el sistema.";
