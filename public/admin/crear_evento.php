@@ -3,29 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <title>Crear Evento</title>
+  <link rel="stylesheet" href="../css/crear_evento.css">
 </head>
 <body>
 
-  <img src="../img/logo-uda.png" alt="Universidad de Atacama">
-  <h2>Crear evento</h2>
+<div class="registro-container">
 
-  <form action="../../php/guardar_evento.php" method="POST">
+  <img src="../img/logo-uda.png" alt="Universidad de Atacama" class="logo-encabezado">
 
+  <h2 class="titulo-admin">Crear evento</h2>
+
+  <form action="../../php/guardar_evento.php" method="POST" class="formulario-crear">
+    
     <label for="tipo">Tipo de evento</label><br>
     <select id="tipo" name="tipo" required>
-      <option value="">Seleccionar tipo</option>
       <option value="semanal">Semanal</option>
       <option value="diario">Diario</option>
-    </select><br><br>
-
-    <input type="text" name="titulo" placeholder="Título de evento" required><br><br>
-    <input type="date" name="fecha" placeholder="Fecha del evento" required><br><br>
-    <input type="text" name="lugar" placeholder="Lugar del evento" required><br><br>
-    <input type="time" name="hora" placeholder="Hora del evento" required><br><br>
-    <textarea name="descripcion" placeholder="Descripción del evento" rows="4" required></textarea><br><br>
-
-    <button type="submit" name="crear_evento">Crear</button>
+    </select>
+    
+    <input type="text" name="titulo" placeholder="Título de evento" required>
+    <input type="date" name="fecha" placeholder="Fecha del evento" required>
+    <input type="text" name="lugar" placeholder="Lugar del evento" required>
+    <input type="time" name="hora" placeholder="Hora del evento" required>
+    <textarea name="descripcion" placeholder="Descripción del evento" rows="4" required></textarea>
+    <button type="submit" name="crear_evento" class="boton-crear">Crear</button>
   </form>
+
+</div>
 
 </body>
 </html>
+

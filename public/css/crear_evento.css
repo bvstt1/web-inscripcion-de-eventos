@@ -1,0 +1,87 @@
+body {
+  background: #e4e4e4;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.registro-container {
+  background: #ffffff;
+  padding: 30px 20px;
+  border-radius: 25px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.logo-encabezado {
+  width: 80px;
+  margin-bottom: 20px;
+}
+
+.titulo-admin {
+  color: #000000;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.tipo-evento {
+  background: #d3d3d3;
+  padding: 12px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+.formulario-crear {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.formulario-crear input,
+.formulario-crear textarea {
+  padding: 12px;
+  border: 1px solid #438a7e;
+  border-radius: 8px;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.formulario-crear textarea {
+  resize: none;
+  height: 100px;
+}
+
+.boton-crear {
+  background: linear-gradient(to right, #438a7e, #5cb8a0);
+  color: white;
+  padding: 15px 0;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  width: 100%;
+  cursor: pointer;
+  margin-top: 20px;
+  box-shadow: 0px 8px 16px rgba(67, 138, 126, 0.3);
+  transition: background 0.3s, transform 0.2s;
+}
+
+.boton-crear:hover {
+  background: linear-gradient(to right, #356f63, #4ca58d);
+  transform: scale(1.03);
+}
+
+@media (max-width: 480px) {
+  .registro-container {
+    padding: 20px 15px;
+  }
+}

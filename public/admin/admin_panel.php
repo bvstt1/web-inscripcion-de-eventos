@@ -13,19 +13,25 @@ if (!isset($_SESSION['tipo_usuario']) || $_SESSION['tipo_usuario'] !== 'admin') 
 <head>
   <meta charset="UTF-8">
   <title>Panel Administrador</title>
+  <link rel="stylesheet" href="../css/admin_panel.css">
 </head>
 <body>
 
-  <img src="./img/Universidad_de_Atacama_logo_(2020).svg.png" alt="Universidad de Atacama">
+<div class="registro-container">
 
-  <h2>Administrador</h2>
+  <img src="../img/logo-uda.png" alt="Universidad de Atacama" class="logo-encabezado">
 
-  <a href="./crear_evento.php">Crear Evento</a><br>
-  <a href="./vee_evento.php">Ver / Editar / Eliminar Evento</a><br>
-  <a href="asistencia_eventos.php">Asistencia eventos</a><br>
+  <h2 class="titulo-admin">Administrador</h2>
 
+  <div class="admin-opciones">
+    <a href="./crear_evento.php" class="admin-boton">Crear Evento</a>
+    <a href="./vee_evento.php" class="admin-boton">Ver / Editar / Eliminar Evento</a>
+    <a href="./asistencia_eventos.php" class="admin-boton">Asistencia eventos</a>
+  </div>
   <a href="../../php/logout.php">Cerrar sesión</a>
-
+ 
+</div>
 
 </body>
 </html>
+
