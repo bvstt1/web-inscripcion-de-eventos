@@ -9,13 +9,13 @@
 
 <div class="registro-container">
 
-  <img src="../img/logo-uda.png" alt="Universidad de Atacama" class="logo-encabezado">
+  <img src="../img/Universidad_de_Atacama_logo_(2020).svg.png" alt="Universidad de Atacama" class="logo-encabezado">
 
   <h2 class="titulo-admin">Crear evento</h2>
 
   <form action="../../php/guardar_evento.php" method="POST" class="formulario-crear">
     
-    <label for="tipo">Tipo de evento</label><br>
+    <label for="tipo">Tipo de evento</label>
     <select id="tipo" name="tipo" required>
       <option value="semanal">Semanal</option>
       <option value="diario">Diario</option>

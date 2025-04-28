@@ -19,7 +19,7 @@ if (!isset($_SESSION['tipo_usuario']) || $_SESSION['tipo_usuario'] !== 'admin') 
 
 <div class="registro-container">
 
-  <img src="../img/logo-uda.png" alt="Universidad de Atacama" class="logo-encabezado">
+  <img src="../img/Universidad_de_Atacama_logo_(2020).svg.png" alt="Universidad de Atacama" class="logo-encabezado">
 
   <h2 class="titulo-admin">Administrador</h2>
 
