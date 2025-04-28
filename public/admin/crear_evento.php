@@ -9,13 +9,13 @@
   <img src="../img/logo-uda.png" alt="Universidad de Atacama">
   <h2>Crear evento</h2>
 
-  <form action="../php/guardar_evento.php" method="POST">
+  <form action="../../php/guardar_evento.php" method="POST">
 
-    <label for="tipo_evento">Tipo de evento</label><br>
-    <select id="tipo_evento" name="tipo_evento" required>
+    <label for="tipo">Tipo de evento</label><br>
+    <select id="tipo" name="tipo" required>
       <option value="">Seleccionar tipo</option>
-      <option value="Conferencia">Semanal</option>
-      <option value="Charla">Diario</option>
+      <option value="semanal">Semanal</option>
+      <option value="diario">Diario</option>
     </select><br><br>
 
     <input type="text" name="titulo" placeholder="Título de evento" required><br><br>
