@@ -1,0 +1,75 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f1f1f1;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    background: white;
+    max-width: 400px;
+    width: 90%;
+    padding: 20px;
+    border-radius: 20px;
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.encabezado {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.encabezado img {
+    width: 80px;
+    margin-bottom: 10px;
+}
+
+.encabezado h2 {
+    margin: 5px 0;
+    font-size: 20px;
+    border-top: 3px solid #0077cc;
+    padding-top: 10px;
+}
+
+.card {
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+    color: black;
+}
+
+.card.gris {
+    background-color: #e0e0e0;
+}
+
+.card.rojo {
+    background-color: #c62828;
+    color: white;
+}
+
+.card.amarillo {
+    background-color: #ffeb3b;
+}
+
+.btn {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn.verde {
+    background-color: #4caf50;
+    color: white;
+}
+
+.btn.verde:hover {
+    background-color: #388e3c;
+}

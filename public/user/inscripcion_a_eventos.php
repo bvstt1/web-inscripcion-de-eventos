@@ -2,17 +2,16 @@
 include("../../includes/conexion.php");
 session_start();
 
-// Comprobar si el usuario está logueado
+// Verificar sesión
 if (!isset($_SESSION['rut'])) {
     header("Location: ../../index.html");
     exit();
 }
 
-// Traer todos los eventos
+// Obtener eventos
 $sql = "SELECT * FROM eventos";
 $resultado = mysqli_query($enlace, $sql);
 
-// Separar eventos diarios y semanales
 $eventos_diarios = [];
 $eventos_semanales = [];
 
@@ -24,7 +23,7 @@ while ($evento = mysqli_fetch_assoc($resultado)) {
     }
 }
 
-// Traer inscripciones del usuario
+// Obtener eventos inscritos por el usuario
 $rut_usuario = $_SESSION['rut'];
 $sql_inscripciones = "SELECT id_evento FROM inscripciones WHERE rut_usuario = '$rut_usuario'";
 $resultado_inscripciones = mysqli_query($enlace, $sql_inscripciones);
@@ -39,59 +38,57 @@ while ($row = mysqli_fetch_assoc($resultado_inscripciones)) {
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Eventos Disponibles</title>
+    <title>Registro de Asistencia</title>
+    <link rel="stylesheet" href="../css/inscripcion_a_eventos.css">
 </head>
 <body>
 
-    <!-- Botón de cerrar sesión -->
-    <a href="../../php/logout.php">Cerrar Sesión</a>
+<div class="container">
+    <header class="encabezado">
+        <img src="../img/Universidad_de_Atacama_logo_(2020).svg.png" alt="Universidad de Atacama" class="logo">
+        <h2>Registro de asistencia</h2>
+        <p>Bienvenido/a <strong><?php echo $_SESSION['nombre_apellido'] ?? 'Usuario'; ?></strong></p>
+        <p>Aquí puedes ver y registrar tu asistencia a los eventos.</p>
+    </header>
 
-    <h1>Eventos Disponibles</h1>
-
-    <!-- Sección Eventos Diarios -->
-    <h2>Eventos Diarios</h2>
-    <?php if (empty($eventos_diarios)): ?>
-        <p>No hay eventos diarios disponibles.</p>
-    <?php else: ?>
-        <?php foreach ($eventos_diarios as $evento): ?>
-            <div>
-                <h3><?php echo htmlspecialchars($evento['titulo']); ?></h3>
-                <p><strong>Fecha:</strong> <?php echo htmlspecialchars($evento['fecha']); ?></p>
-                <p><strong>Hora:</strong> <?php echo htmlspecialchars($evento['hora']); ?></p>
-                <p><strong>Lugar:</strong> <?php echo htmlspecialchars($evento['lugar']); ?></p>
-                <p><?php echo htmlspecialchars($evento['descripcion']); ?></p>
-                <?php if (in_array($evento['id'], $eventos_inscritos)): ?>
-                    <a href="javascript:void(0);" onclick="confirmarDesinscripcion(<?php echo $evento['id']; ?>)">Desinscribirse</a>
-                <?php else: ?>
-                    <a href="javascript:void(0);" onclick="confirmarInscripcion(<?php echo $evento['id']; ?>)">Inscribirse</a>
-                <?php endif; ?>
-            </div>
-            <hr>
-        <?php endforeach; ?>
-    <?php endif; ?>
-
-    <!-- Sección Eventos Semanales -->
+    <!-- Eventos Semanales -->
     <h2>Eventos Semanales</h2>
     <?php if (empty($eventos_semanales)): ?>
         <p>No hay eventos semanales disponibles.</p>
     <?php else: ?>
         <?php foreach ($eventos_semanales as $evento): ?>
-            <div>
-                <h3><?php echo htmlspecialchars($evento['titulo']); ?></h3>
-                <p><strong>Fecha:</strong> <?php echo htmlspecialchars($evento['fecha']); ?></p>
-                <p><strong>Hora:</strong> <?php echo htmlspecialchars($evento['hora']); ?></p>
-                <p><strong>Lugar:</strong> <?php echo htmlspecialchars($evento['lugar']); ?></p>
-                <p><?php echo htmlspecialchars($evento['descripcion']); ?></p>
-                <?php if (in_array($evento['id'], $eventos_inscritos)): ?>
-                    <a href="javascript:void(0);" onclick="confirmarDesinscripcion(<?php echo $evento['id']; ?>)">Desinscribirse</a>
-                <?php else: ?>
-                    <a href="javascript:void(0);" onclick="confirmarInscripcion(<?php echo $evento['id']; ?>)">Inscribirse</a>
-                <?php endif; ?>
+            <div class="card gris">
+                <h3><?php echo $evento['titulo']; ?></h3>
+                <p><strong>Evento Semanal</strong></p>
+                <p>Fecha: <?php echo $evento['fecha'] ; ?></p>
+                <p><?php echo $evento['descripcion']; ?></p>
+                <a href="#" class="btn verde">Ver Sub - Eventos</a>
             </div>
-            <hr>
         <?php endforeach; ?>
     <?php endif; ?>
 
-    <script src="../../js/confirmarInscripcion.js"></script>
+    <!-- Eventos Diarios -->
+    <h2>Eventos Diarios</h2>
+    <?php if (empty($eventos_diarios)): ?>
+        <p>No hay eventos diarios disponibles.</p>
+    <?php else: ?>
+        <?php foreach ($eventos_diarios as $evento): ?>
+            <?php
+            $inscrito = in_array($evento['id'], $eventos_inscritos);
+            $clase_color = $inscrito ? 'rojo' : 'amarillo';
+            $texto_boton = $inscrito ? 'Inscrito' : 'Inscribirse';
+            ?>
+            <div class="card <?php echo $clase_color; ?>">
+                <h3><?php echo $evento['titulo']; ?></h3>
+                <p>Lugar: <?php echo $evento['lugar']; ?></p>
+                <p>Fecha: <?php echo $evento['fecha']; ?></p>
+                <p>Hora: <?php echo $evento['hora']; ?></p>
+                <p><?php echo $evento['descripcion']; ?></p>
+                <a href="#" class="btn verde"><?php echo $texto_boton; ?></a>
+            </div>
+        <?php endforeach; ?>
+    <?php endif; ?>
+</div>
+
 </body>
 </html>
