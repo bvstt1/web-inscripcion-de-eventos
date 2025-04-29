@@ -9,43 +9,33 @@ $resultado = mysqli_query($enlace, $sql);
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Panel de Eventos</title>
-    <style>
-        .card {
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 10px;
-            width: 300px;
-            display: inline-block;
-            vertical-align: top;
-            box-shadow: 2px 2px 12px rgba(0,0,0,0.1);
-        }
-        .card h3 {
-            margin-top: 0;
-        }
-        .card a {
-            margin-right: 10px;
-            text-decoration: none;
-            color: blue;
-        }
-    </style>
+    <title>Ver / Editar / Eliminar Evento</title>
+    <link rel="stylesheet" href="../css/vee_eventos.css">
 </head>
 <body>
 
-<h2>Listado de Eventos</h2>
+<div class="container">
+    <header>
+        <img src="../img/Universidad_de_Atacama_logo_(2020).svg.png" alt="Universidad de Atacama" class="logo">
+        <h2>Ver / Editar / Eliminar Evento</h2>
+    </header>
 
-<?php while($evento = mysqli_fetch_assoc($resultado)) { ?>
-    <div class="card">
-        <h3><?php echo htmlspecialchars($evento['titulo']); ?></h3>
-        <p><strong>Fecha:</strong> <?php echo htmlspecialchars($evento['fecha']); ?></p>
-        <p><strong>Hora:</strong> <?php echo htmlspecialchars($evento['hora']); ?></p>
-        <p><strong>Lugar:</strong> <?php echo htmlspecialchars($evento['lugar']); ?></p>
-        <p><?php echo htmlspecialchars($evento['descripcion']); ?></p>
-        <a href="editar_evento.php?id=<?php echo $evento['id']; ?>">Editar</a> |
-        <a href="../../php/eliminar_evento.php?id=<?php echo $evento['id']; ?>" onclick="return confirm('¿Seguro que deseas eliminar este evento?');">Eliminar</a>
-    </div>
-<?php } ?>
+    <?php while ($evento = $resultado->fetch_assoc()): ?>
+        <div class="evento-card">
+            <h3><?php echo htmlspecialchars($evento['titulo']); ?></h3>
+            <p class="fecha">Fecha: <?php echo htmlspecialchars($evento['fecha']); ?></p>
+            <p class="hora">Hora: <?php echo htmlspecialchars($evento['hora']); ?></p>
+            <p class="lugar">Lugar: <?php echo htmlspecialchars($evento['lugar']); ?></p>
+            <p class="descripcion">Descripción: <?php echo htmlspecialchars($evento['descripcion']); ?></p>
+            <div class="botones">
+                <button class="editar" onclick="editarEvento(<?php echo $evento['id']; ?>)">Editar</button>
+                <button class="eliminar" onclick="eliminarEvento(<?php echo $evento['id']; ?>)">Eliminar</button>
+            </div>
+        </div>
+    <?php endwhile; ?>
+
+</div>
+
 
 </body>
 </html>

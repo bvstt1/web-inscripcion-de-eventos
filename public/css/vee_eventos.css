@@ -1,0 +1,88 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    background-color: white;
+    width: 90%;
+    max-width: 400px;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo {
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 20px;
+    color: #333;
+}
+
+.evento-card {
+    background-color: #e0e0e0;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.evento-card h3 {
+    margin: 0;
+    font-size: 22px;
+    color: #333;
+}
+
+.hora, .fecha, .lugar, .descripcion {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.botones {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Espacio entre los botones */
+    margin-top: 10px;
+}
+
+.editar {
+    background-color: #4CAF50;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.eliminar {
+    background-color: #B22222;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.editar:hover {
+    background-color: #45a049;
+}
+
+.eliminar:hover {
+    background-color: #a40000;
+}
