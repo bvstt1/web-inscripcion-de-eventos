@@ -26,7 +26,7 @@ if (!isset($_SESSION['tipo_usuario']) || $_SESSION['tipo_usuario'] !== 'admin') 
   <div class="admin-opciones">
     <a href="./crear_evento.php" class="admin-boton">Crear Evento</a>
     <a href="./vee_evento.php" class="admin-boton">Ver / Editar / Eliminar Evento</a>
-    <a href="./asistencia_eventos.php" class="admin-boton">Asistencia eventos</a>
+    <a href="./ver_inscripciones.php" class="admin-boton">Asistencia eventos</a>
   </div>
   <a href="../../php/logout.php">Cerrar sesión</a>
  

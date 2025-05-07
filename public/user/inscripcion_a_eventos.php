@@ -2,14 +2,14 @@
 include("../../includes/conexion.php");
 session_start();
 
-// Comprobar si el usuario está logueado
-if (!isset($_SESSION['rut'])) {
-    header("Location: ../../index.html");
+// Verificar sesión
+if (!isset($_SESSION['rut']) || !isset($_SESSION['tipo_usuario'])) {
+    echo "<script>alert('Error: No has iniciado sesión.'); window.location.href='../../index.html';</script>";
     exit();
 }
 
-// Traer todos los eventos
-$sql = "SELECT * FROM eventos";
+// Traer eventos semanales y diarios que no esten asociados a ningún evento semanal
+$sql = "SELECT * FROM eventos WHERE id_evento_padre IS NULL";
 $resultado = mysqli_query($enlace, $sql);
 
 // Separar eventos diarios y semanales
@@ -40,6 +40,7 @@ while ($row = mysqli_fetch_assoc($resultado_inscripciones)) {
 <head>
     <meta charset="UTF-8">
     <title>Eventos Disponibles</title>
+    <link rel="stylesheet" href="../css/video.css">
 </head>
 <body>
 
@@ -59,7 +60,7 @@ while ($row = mysqli_fetch_assoc($resultado_inscripciones)) {
                 <p><strong>Fecha:</strong> <?php echo htmlspecialchars($evento['fecha']); ?></p>
                 <p><strong>Hora:</strong> <?php echo htmlspecialchars($evento['hora']); ?></p>
                 <p><strong>Lugar:</strong> <?php echo htmlspecialchars($evento['lugar']); ?></p>
-                <p><?php echo htmlspecialchars($evento['descripcion']); ?></p>
+                <p><?php echo $evento['descripcion']; ?></p>
                 <?php if (in_array($evento['id'], $eventos_inscritos)): ?>
                     <a href="javascript:void(0);" onclick="confirmarDesinscripcion(<?php echo $evento['id']; ?>)">Desinscribirse</a>
                 <?php else: ?>
@@ -81,12 +82,8 @@ while ($row = mysqli_fetch_assoc($resultado_inscripciones)) {
                 <p><strong>Fecha:</strong> <?php echo htmlspecialchars($evento['fecha']); ?></p>
                 <p><strong>Hora:</strong> <?php echo htmlspecialchars($evento['hora']); ?></p>
                 <p><strong>Lugar:</strong> <?php echo htmlspecialchars($evento['lugar']); ?></p>
-                <p><?php echo htmlspecialchars($evento['descripcion']); ?></p>
-                <?php if (in_array($evento['id'], $eventos_inscritos)): ?>
-                    <a href="javascript:void(0);" onclick="confirmarDesinscripcion(<?php echo $evento['id']; ?>)">Desinscribirse</a>
-                <?php else: ?>
-                    <a href="javascript:void(0);" onclick="confirmarInscripcion(<?php echo $evento['id']; ?>)">Inscribirse</a>
-                <?php endif; ?>
+                <p><?php echo $evento['descripcion']; ?></p>
+                <a href="./inscripcion_eventos_semana.php?id_evento=<?php echo $evento['id']; ?>">Ver días disponibles</a>
             </div>
             <hr>
         <?php endforeach; ?>

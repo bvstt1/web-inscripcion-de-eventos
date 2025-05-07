@@ -11,6 +11,7 @@ $resultado = mysqli_query($enlace, $sql);
     <meta charset="UTF-8">
     <title>Ver / Editar / Eliminar Evento</title>
     <link rel="stylesheet" href="../css/vee_eventos.css">
+    <link rel="stylesheet" href="../css/video.css">
 </head>
 <body>
 
@@ -26,7 +27,9 @@ $resultado = mysqli_query($enlace, $sql);
             <p class="fecha">Fecha: <?php echo htmlspecialchars($evento['fecha']); ?></p>
             <p class="hora">Hora: <?php echo htmlspecialchars($evento['hora']); ?></p>
             <p class="lugar">Lugar: <?php echo htmlspecialchars($evento['lugar']); ?></p>
-            <p class="descripcion">Descripción: <?php echo htmlspecialchars($evento['descripcion']); ?></p>
+            <div class="descripcion">
+                <?php echo $evento['descripcion']; ?>
+            </div>
             <div class="botones">
                 <button class="editar" onclick="editarEvento(<?php echo $evento['id']; ?>)">Editar</button>
                 <button class="eliminar" onclick="eliminarEvento(<?php echo $evento['id']; ?>)">Eliminar</button>
@@ -36,6 +39,6 @@ $resultado = mysqli_query($enlace, $sql);
 
 </div>
 
-
+<script src="../../js/youtube.js"></script>
 </body>
 </html>

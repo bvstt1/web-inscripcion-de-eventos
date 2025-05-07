@@ -32,5 +32,5 @@ if (isset($_POST['registro-est'])) {
         exit();
     }
 }
-?>
+?> 
 

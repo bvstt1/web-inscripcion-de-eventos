@@ -7,11 +7,19 @@ if (isset($_POST['crear_evento'])) {
     $titulo = mysqli_real_escape_string($enlace, $_POST['titulo']);
     $fecha = mysqli_real_escape_string($enlace, $_POST['fecha']);
     $lugar = mysqli_real_escape_string($enlace, $_POST['lugar']);
-    $hora = mysqli_real_escape_string($enlace, $_POST['hora']);
     $descripcion = mysqli_real_escape_string($enlace, $_POST['descripcion']);
 
-    $sql = "INSERT INTO eventos (tipo, titulo, fecha, lugar, hora, descripcion)
-            VALUES ('$tipo', '$titulo', '$fecha', '$lugar', '$hora', '$descripcion')";
+    $hora = isset($_POST['hora']) && $_POST['hora'] !== '' 
+    ? "'" . mysqli_real_escape_string($enlace, $_POST['hora']) . "'"
+    : 'NULL';
+
+    $id_evento_padre = isset($_POST['evento_padre']) && $_POST['evento_padre'] !== ''
+        ? intval($_POST['evento_padre'])
+        : 'NULL';
+
+    $sql = "INSERT INTO eventos (tipo, titulo, fecha, lugar, hora, descripcion, id_evento_padre)
+        VALUES ('$tipo', '$titulo', '$fecha', '$lugar', $hora, '$descripcion', $id_evento_padre)";
+
 
     if (mysqli_query($enlace, $sql)) {
         echo "Evento creado exitosamente.";
@@ -19,6 +27,4 @@ if (isset($_POST['crear_evento'])) {
         echo "Error al crear evento: " . mysqli_error($enlace);
     }
 }
-
 ?>
-

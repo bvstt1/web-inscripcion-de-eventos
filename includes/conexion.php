@@ -1,7 +1,7 @@
 <?php
     $servidor = "localhost";
     $usuario = "root";
-    $clave = "yerkirils1";
+    $clave = "";
     $baseDeDatos = "app-uda-inscripcion";
 
     $enlace = mysqli_connect($servidor, $usuario, $clave, $baseDeDatos);

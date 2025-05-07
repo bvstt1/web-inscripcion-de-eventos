@@ -14,17 +14,34 @@ if (!isset($_GET['id_evento'])) {
     exit();
 }
 
-// Capturar datos
 $rut = $_SESSION['rut'];
 $tipo_usuario = $_SESSION['tipo_usuario'];
 $id_evento = intval($_GET['id_evento']);
 
-// Insertar
+// Verificar si el evento existe
+$queryEvento = "SELECT * FROM eventos WHERE id = $id_evento";
+$resultEvento = mysqli_query($enlace, $queryEvento);
+$evento = mysqli_fetch_assoc($resultEvento);
+
+if (!$evento) {
+    echo "<script>alert('Evento no encontrado.'); window.history.back();</script>";
+    exit();
+}
+
+// Traer inscripciones del usuario
+$sql_inscripciones = "SELECT id_evento FROM inscripciones WHERE rut_usuario = '$rut'";
+$resultado_inscripciones = mysqli_query($enlace, $sql_inscripciones);
+
+$eventos_inscritos = [];
+while ($row = mysqli_fetch_assoc($resultado_inscripciones)) {
+    $eventos_inscritos[] = $row['id_evento'];
+}
+
+// Si es evento diario → inscribimos directamente
 $sql = "INSERT INTO inscripciones (rut_usuario, id_evento, tipo_usuario) 
         VALUES ('$rut', $id_evento, '$tipo_usuario')";
 
 if (mysqli_query($enlace, $sql)) {
-    // Éxito: mostramos página de confirmación
     ?>
     <!DOCTYPE html>
     <html lang="es">
@@ -40,6 +57,5 @@ if (mysqli_query($enlace, $sql)) {
     </html>
     <?php
 } else {
-    echo "<script>alert('Error en el INSERT: " . mysqli_error($enlace) . "'); window.history.back();</script>";
+    echo "<script>alert('Error en la inscripción: " . mysqli_error($enlace) . "'); window.history.back();</script>";
 }
-?>
